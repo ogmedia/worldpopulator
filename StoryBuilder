@@ -1,0 +1,160 @@
+StoryBuilder
+
+GenerateGroup
+
+Seeded Categories:
+-
+(World)					[Res, Cal, Fir]
+(Region)				[North, South, East, West, Northeast, Northwest, Southeast, Southwest, Central]
+
+
+world:[
+{
+	id: 1,
+	name: 'Res',
+},{
+	id: 2,
+	name: 'Cal'
+},{
+	id: 3,
+	name: 'Fir'
+}
+]
+
+region:[
+{
+	id: 1,
+	region: 'North'
+},
+{
+	id: 2,
+	region: 'South'
+},
+{
+	id: 3,
+	region: 'East'
+},{
+	id: 4,
+	region: 'West'
+},{
+	id: 5,
+	region: 'Northeast'
+},{
+	id: 6,
+	region: 'Northwest'
+},{
+	id: 7,
+	region: 'Southwest'
+},{
+	id: 8,
+	region: 'Southeast'
+}
+]
+
+
+Familes:
+------------------------------------------------------------------------
+Take random number size between 5 and 80 and generate characters based off family seeding.
+
+Family Name - grab random name from db [last name]
+Ancestor [ family prime ] - generate original person with characteristics (Adam)
+Then build a tree
+Total Family Size, average 4 kids per generation (minimum 5 total)
+{
+	id:
+	parent_id:
+	first_name:
+	last_name:
+}
+
+
+-------------------------------------------------------------------------------------------
+
+
+var randomFirstName = function(names){
+	
+};
+
+var char_id_track = 1; //main scope
+const num_children = 4;
+
+const prime = {
+	id: char_id_track,
+	parent_id: 0,
+	first_name: 'Adam',
+	last_name: 'Lathsi'
+};
+
+var build_family = function(patriarch, family_size){
+	let family = [patriarch];
+	let next_generation = [];
+
+	var create_child = function(p){
+		char_id_track++;
+		let c = {
+			id: char_id_track,
+			parent_id: p.id;
+			first_name: randFirstName(),
+			last_name: p.last_name,
+		};
+
+		next_generation.push[c];
+		family.push[c];
+	};
+
+	let members = [patriarch];
+	let gen_track = 1;
+	while(family.length < family_size){
+
+			//if our next generation queue is full up, iterate through that and clear it
+			if(next_generation.length > ( Math.pow( num_children,gen_track ) - 1 ) ){
+				members = next_generation;
+				next_generation = [];
+				gen_track++;
+			}
+			
+			members.map(create_child);
+		
+	}//end loop
+
+}
+
+build_family(prime, 10);
+
+-------------------------------------------------------------------------------------------
+
+Character:
+-
+(First Name)			( random 'first_name' )	
+(Last Name)				( random 'last_name' & family )
+(Special 1)				( random > threshold | random special )
+(Special 2)				( random > threshold | random special )
+
+-Story:	
+World:					
+Country/Kingdom:		
+State/Barony:			
+Family:	
+[ Result of family generation ]
+Organization/Religion:				
+
+[First name] [Last name] is a member of the [ ]
+
+-Attributes:
+Strength				
+Dexterity				
+Charisma				
+Psychic					
+
+------------------------------------------------------------------------
+
+Item Slots:
+Head					1
+Eyes					1
+Neck					1
+Torso					1
+Arms					2
+Legs					2
+Feet					1
+Hands					2
+Wrists					2
